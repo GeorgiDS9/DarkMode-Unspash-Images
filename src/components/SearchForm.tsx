@@ -1,6 +1,6 @@
 import React from "react";
 
-// Link: <https://api.unsplash.com/search/collections?page=1&query=office>;
+// Link: https://api.unsplash.com/search/photos?client_id=VITE_ACCESS_KEY&query=office;
 
 const SearchForm = () => {
   const handleSubmit = (e) => {
