@@ -1,14 +1,16 @@
 import React from "react";
-
-// Link: https://api.unsplash.com/search/photos?client_id=VITE_ACCESS_KEY&query=office;
+import { useGlobalContext } from "../context";
 
 const SearchForm = () => {
+  const { setSearchWord } = useGlobalContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
     if (!searchValue) return;
-    console.log("searchValue", searchValue);
+    setSearchWord(searchValue);
   };
+
   return (
     <section>
       <h1 className="title">Unsplash Images</h1>
@@ -16,11 +18,11 @@ const SearchForm = () => {
         <input
           type="text"
           name="search"
-          placeholder="dog"
+          placeholder="anything you like..."
           className="form-input search-input"
         />
         <button type="submit" className="btn">
-          Search
+          search
         </button>
       </form>
     </section>

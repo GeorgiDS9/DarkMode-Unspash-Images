@@ -4,15 +4,17 @@ const AppContext = createContext();
 
 const getInitialDarkMode = () => {
   const prefersDarkMode = window.matchMedia(
-    "(prefers-color-scheme:dark)"
+    "(prefers-color-scheme: dark)"
   ).matches;
-  const storedDarkMode = localStorage.getItem("darkTheme") === "true";
-
-  return storedDarkMode || prefersDarkMode;
+  const storedDarkMode = localStorage.getItem("darkTheme");
+  if (!storedDarkMode) {
+    return prefersDarkMode;
+  }
+  return storedDarkMode === "true";
 };
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode());
-  const [searchTerm, setSearchTerm] = useState("country");
+  const [searchWord, setSearchWord] = useState("country");
   const toggleDarkTheme = () => {
     const newDarkTheme = !isDarkTheme;
     setIsDarkTheme(newDarkTheme);
@@ -24,7 +26,7 @@ export const AppProvider = ({ children }) => {
   }, [isDarkTheme]);
   return (
     <AppContext.Provider
-      value={{ isDarkTheme, toggleDarkTheme, searchTerm, setSearchTerm }}
+      value={{ isDarkTheme, toggleDarkTheme, searchWord, setSearchWord }}
     >
       {children}
     </AppContext.Provider>

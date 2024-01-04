@@ -1,18 +1,18 @@
 import axios from "axios";
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useGlobalContext } from "../context";
 
-// TODO use import.meta.env....
-const url = `https://api.unsplash.com/search/photos?client_id={${import.meta.env.VITE_ACCESS_KEY}&query=japan`;
-
-// console.log("URL", url);
-console.log("ENV", import.meta.env.VITE_ACCESS_KEY);
+const url = `https://api.unsplash.com/search/photos?client_id=${
+  import.meta.env.VITE_ACCESS_KEY
+}`;
 
 const Gallery = () => {
+  const { searchWord } = useGlobalContext();
   const { isLoading, isError, data } = useQuery({
-    queryKey: ["images"],
+    queryKey: ["images", searchWord], // Addded var here because react query caches it and needs to update it. If the queryKey array doesn't change between component renders, useQuery will return the cached data instead of re-fetching it from the API.
     queryFn: async () => {
-      const result = await axios.get(url);
+      const result = await axios.get(`${url}&query=${searchWord}`);
       return result.data;
     },
   });
@@ -20,7 +20,7 @@ const Gallery = () => {
   if (isLoading) {
     return (
       <section className="image-container">
-        <h4 style={{textAlign: "center"}}>Loading images...</h4>
+        <h4 style={{ textAlign: "center" }}>Loading images...</h4>
       </section>
     );
   }
@@ -34,8 +34,7 @@ const Gallery = () => {
   }
 
   const results = data.results;
-  console.log("data", data);
-  if (data.length < 1) {
+  if (results.length < 1) {
     return (
       <section className="image-container">
         <h4>No results found...</h4>;
