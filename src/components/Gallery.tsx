@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 // TODO use import.meta.env....
 const url = `https://api.unsplash.com/search/photos?client_id={${import.meta.env.VITE_ACCESS_KEY}&query=japan`;

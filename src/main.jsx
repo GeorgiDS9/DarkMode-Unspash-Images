@@ -9,7 +9,8 @@ import {
   useQueryClient,
   QueryClient,
   QueryClientProvider,
-} from "react-query";
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <AppProvider>
     <QueryClientProvider client={queryClient}>
       <App />
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   </AppProvider>
 );
