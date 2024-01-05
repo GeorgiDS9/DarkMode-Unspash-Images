@@ -1,6 +1,4 @@
-# Steps
-
-### Setup
+## Setup
 
 - npm install
 - npm run dev
@@ -17,7 +15,9 @@
 - Test, test, test...
 - Deploy to Netlify
 
-## React Query Info
+## Info
+
+### React Query Info
 
 By default, useQuery caches the results of the API request for a certain amount of time. This can improve the performance of your application by reducing the number of requests made to the API.
 

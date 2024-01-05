@@ -12,6 +12,7 @@ const getInitialDarkMode = () => {
   }
   return storedDarkMode === "true";
 };
+
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode());
   const [searchWord, setSearchWord] = useState("country");
