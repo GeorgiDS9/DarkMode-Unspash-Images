@@ -155,7 +155,7 @@ h5 {
 
 small,
 .text-small {
-  font-size: var(--small-text);
+  font-size: 0.875rem;
 }
 
 a {
@@ -175,8 +175,8 @@ ul {
 
 .btn {
   cursor: pointer;
-  color: var(--white);
-  background: var(--primary-500);
+  color: #ffff;
+  background: #f09027;
   border: transparent;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
@@ -187,7 +187,7 @@ ul {
   display: inline-block;
 }
 .btn:hover {
-  background: var(--primary-700);
+  background: #f5b553;
   box-shadow: var(--shadow-3);
 }
 .btn-hipster {
@@ -231,7 +231,7 @@ ul {
 }
 .form-label {
   display: block;
-  font-size: var(--small-text);
+  font-size: 0.875rem;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
@@ -333,7 +333,7 @@ Search Form
 ========
 */
 .title {
-  color: var(--primary-500);
+  color: #f09027;
 }
 .search-form {
   width: var(--view-width);
@@ -357,7 +357,7 @@ Search Form
   border-radius: 0;
 }
 .search-form .btn:hover {
-  background: var(--primary-300);
+  background: #3bb4c1;
   color: var(--black);
 }
 
